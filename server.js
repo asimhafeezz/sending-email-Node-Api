@@ -12,10 +12,6 @@ app.use(bodyParser.json())
 app.use(cors())
 
 
-app.get('/', (res, req) => {
-    res.send('Hello')
-})
-
 app.post('/send', (req , res) => {
 
     let {name , subject , email , message} = req.body
@@ -41,9 +37,6 @@ app.post('/send', (req , res) => {
         auth: {
           user: 'tourisumtransportfacility@gmail.com',
           pass: 'fyp123456' // naturally, replace both with your real credentials or an application-specific password
-        },
-        tls: {
-            rejectUnauthorized:false
         }
       });
       
@@ -93,9 +86,6 @@ app.post('/sendBeaHostEmail', (req , res) => {
       auth: {
         user: 'tourisumtransportfacility@gmail.com',
         pass: 'fyp123456' // naturally, replace both with your real credentials or an application-specific password
-      },
-      tls: {
-          rejectUnauthorized:false
       }
     });
     
@@ -145,10 +135,11 @@ app.post('/sendBookingConfirmationEmail', (req , res) => {
       auth: {
         user: 'safarcarecenter@gmail.com',
         pass: 'fyp123456' // naturally, replace both with your real credentials or an application-specific password
-      },
-      tls: {
-          rejectUnauthorized:false
-      }
+    }
+    // ,
+    //   tls: {
+    //       rejectUnauthorized:false
+    //   }
     });
     
     const mailOptions = {
