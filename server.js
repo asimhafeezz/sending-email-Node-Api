@@ -65,7 +65,7 @@ app.post('/sendBeaHostEmail', (req , res) => {
   let {name , description , email , phoneno} = req.body
 
   const output = `
-  <h1 style="color:#fd7014">THANK YOU FOR YOU RESERVATION</h1>
+  <h1 style="color:#fd7014">THANK YOU FOR APPLYING</h1>
   <p>You have a new contact request</p>
   <h3>Contact Details</h3>
   <ul>
@@ -112,7 +112,7 @@ app.post('/sendBeaHostEmail', (req , res) => {
 //send booking confirmation email to user
 app.post('/sendBookingConfirmationEmail', (req , res) => {
 
-  let {name , price , pickUpLocation , returnLocation , pickUpTime , returnTime} = req.body
+  let {name , price , pickUpLocation , returnLocation , pickUpTime , returnTime , email} = req.body
 
   const output = `
   <h1 style="color:#fd7014">THANK YOU FOR YOU RESERVATION</h1>
@@ -133,7 +133,7 @@ app.post('/sendBookingConfirmationEmail', (req , res) => {
   const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: 'safarcarecenter@gmail.com',
+        user: 'tourisumtransportfacility@gmail.com',
         pass: 'fyp123456' // naturally, replace both with your real credentials or an application-specific password
     }
     // ,
@@ -144,7 +144,7 @@ app.post('/sendBookingConfirmationEmail', (req , res) => {
     
     const mailOptions = {
       from: '"Safar Management" <safarcarecenter@gmail.com>',
-      to: 'safarcarecenter@gmail.com',
+      to: email,
       subject: "Vehicle Reservation",
       html:output
     };
